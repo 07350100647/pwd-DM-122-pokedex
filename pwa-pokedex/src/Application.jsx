@@ -23,9 +23,9 @@ class Application extends Nullstack {
 
   render() {
     return (
-      <body class="font-poppins text-darkgray bg-white">
+      <body class="bg-white font-poppins text-darkgray">
         <Head />
-        <Home route="/" />
+        <Home route="/" persistent />
       </body>
     );
   }
