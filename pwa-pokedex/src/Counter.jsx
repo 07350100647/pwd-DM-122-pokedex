@@ -1,14 +1,15 @@
-import Nullstack from 'nullstack';
-import { existsSync, readFileSync, writeFileSync } from 'fs';
+import Nullstack from "nullstack";
+import { existsSync, readFileSync, writeFileSync } from "fs";
 
 class Counter extends Nullstack {
-
-  count = 0
+  count = 0;
 
   static async getCount({ environment }) {
-    const databaseFile = `${environment.production ? '.production' : '.development'}/count.json`
+    const databaseFile = `${
+      environment.production ? ".production" : ".development"
+    }/count.json`;
     if (existsSync(databaseFile)) {
-      const json = readFileSync(databaseFile, 'utf-8');
+      const json = readFileSync(databaseFile, "utf-8");
       return JSON.parse(json).count;
     } else {
       return 0;
@@ -20,7 +21,9 @@ class Counter extends Nullstack {
   }
 
   static async setCount({ environment, count }) {
-    const databaseFile = `${environment.production ? '.production' : '.development'}/count.json`
+    const databaseFile = `${
+      environment.production ? ".production" : ".development"
+    }/count.json`;
     const json = JSON.stringify({ count });
     return writeFileSync(databaseFile, json);
   }
@@ -32,12 +35,14 @@ class Counter extends Nullstack {
 
   render() {
     return (
-      <button onclick={this.increment} class="bg-pink-700 text-white py-4 w-full mt-4">
+      <button
+        onclick={this.increment}
+        class="mt-4 w-full bg-pink-700 py-4 text-white"
+      >
         this.count = {this.count}
       </button>
-    )
+    );
   }
-
 }
 
 export default Counter;
