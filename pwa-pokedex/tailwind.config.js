@@ -1,16 +1,22 @@
 module.exports = {
   content: [
-    "./src/**/*.njs",
-    "./src/**/*.jsx",
-    "./src/**/*.nts",
-    "./src/**/*.tsx",
+    './src/**/*.njs',
+    './src/**/*.jsx',
+    './src/**/*.nts',
+    './src/**/*.tsx',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        darkgray: '#212121',
+        rock: '#B69E31',
+        normal: '#AAA67F',
+        fighting: '#C12239',
+      },
+    },
     fontFamily: {
-      'roboto': ['Roboto', 'sans-serif'],
-      'crete-round': ['Crete Round', 'sans-serif'],
-    }
+      poppins: ['Poppins', 'sans-serif'],
+    },
   },
   plugins: [],
 }
