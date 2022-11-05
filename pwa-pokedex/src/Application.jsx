@@ -1,5 +1,6 @@
 import Nullstack from "nullstack";
 import Home from "./Home";
+import Feature from "./Feature";
 
 import "../tailwind.css";
 
@@ -26,6 +27,7 @@ class Application extends Nullstack {
       <body class="bg-white font-poppins text-darkgray">
         <Head />
         <Home route="/" persistent />
+        <Feature route="/feature" />
       </body>
     );
   }
