@@ -5,6 +5,16 @@ import Feature from "./Feature";
 import "../tailwind.css";
 
 class Application extends Nullstack {
+  static async start(context) {
+    await this.startProject(context);
+  }
+
+  static async startProject({ project }) {
+    project.name = "Nullstack Poke Poll";
+    project.domain = "nullstack.app";
+    project.color = "#D22365";
+  }
+
   prepare({ page }) {
     page.title = "Pokédex First Generation";
     page.locale = "en-US";
@@ -27,7 +37,8 @@ class Application extends Nullstack {
       <body class="bg-white font-poppins text-darkgray">
         <Head />
         <Home route="/" persistent />
-        <Feature route="/feature" />
+        <Feature route="/:name" />
+        {/* <Pokemon route="/:name" /> */}
       </body>
     );
   }

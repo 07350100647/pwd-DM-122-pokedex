@@ -1,11 +1,14 @@
 import Nullstack from "nullstack";
 import PokeCard from "./components/PokeCard";
-import NumberSort from "./icons/NumberSort";
 import PokeballIcon from "./icons/PokeballIcon";
-import Vote from "./Search";
+import Search from "./Search";
 
 class Home extends Nullstack {
   pokeList = [];
+
+  prepare({ project, page }) {
+    page.title = `${project.name} built with Nullstack!`;
+  }
 
   launch({ project, page }) {
     page.title = `${project.name}`;
@@ -48,16 +51,7 @@ class Home extends Nullstack {
   }
 
   async submitFeature({ router }) {
-    console.log("Escolheu um pokemon");
     router.url = `/feature`;
-  }
-
-  renderVote() {
-    return (
-      <div>
-        <Search />
-      </div>
-    );
   }
 
   renderPokeList() {
@@ -74,8 +68,7 @@ class Home extends Nullstack {
     return (
       <section class="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-3 px-4 py-5">
         <Header />
-        {/* <SearchBar /> */}
-        <Vote />
+        <Search />
         <PokeList />
       </section>
     );

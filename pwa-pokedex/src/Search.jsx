@@ -1,20 +1,31 @@
 import Nullstack from "nullstack";
 import "./Search.scss";
 import NumberSort from "./icons/NumberSort";
-class Vote extends Nullstack {
-  async submitPoke({ router }) {
-    console.log("Escolheu um pokemon");
-    router.url = `/feature`;
+class Search extends Nullstack {
+  async submitPoke1({ router }) {
+    router.url = "/" + this.number;
+  }
+
+  async submitPoke() {
+    //async submitPoke({ event }) {
+    console.log("ESCOLHEU um pokemon");
+    this.number = parseInt(event.target.value);
+    console.log("Valor passado", this.number);
+    this.entrada = this.number;
   }
 
   render({ worker }) {
     return (
-      <form onsubmit={this.submitPoke}>
+      //<form onsubmit={this.submitPoke}>
+      <form onsubmit={this.submitPoke1}>
         <input
-          bind={this.choice}
-          id="choice"
+          //bind={this.choice}
+          type="number"
+          //id="choice"
           placeholder="Search pokemon by a number"
           class="w-full rounded-lg border border-gray-300 p-2"
+          value={this.number}
+          oninput={this.submitPoke}
         />
 
         <button disabled={!!worker.queues.persistVote.length}>
@@ -27,4 +38,4 @@ class Vote extends Nullstack {
   }
 }
 
-export default Vote;
+export default Search;
