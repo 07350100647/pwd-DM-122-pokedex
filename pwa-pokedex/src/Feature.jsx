@@ -1,5 +1,5 @@
 import Nullstack from "nullstack";
-import PokeCard from "./components/PokeCard";
+import PokeFeature from "./components/PokeFeature";
 
 class Feature extends Nullstack {
   name = "";
@@ -37,29 +37,13 @@ class Feature extends Nullstack {
       page.status = 404;
     }
   }
-  renderHeader() {
-    return (
-      <header class="flex gap-4">
-        <h1 class="text-2xl font-bold">About</h1>
-      </header>
-    );
-  }
-  renderBody() {
-    return (
-      <body class="flex gap-4">
-        <span class="pokemon">
-          <h2>Pokemon: </h2>
-        </span>
-      </body>
-    );
-  }
 
   renderPokeList() {
     console.log("renderPokelist", this.pokeList);
     return (
       <div class="flex flex-wrap gap-2">
         {this.pokeList.map((pokeData) => (
-          <PokeCard pokeData={pokeData} />
+          <PokeFeature pokeData={pokeData} />
         ))}
       </div>
     );
@@ -68,11 +52,6 @@ class Feature extends Nullstack {
   render() {
     return (
       <section class="mx-auto flex min-h-screen w-full max-w-3xl flex-col gap-3 px-4 py-5">
-        <nav>
-          <a href="/"> Return </a>
-        </nav>
-        <Header />
-        <Body />
         <PokeList />
       </section>
     );

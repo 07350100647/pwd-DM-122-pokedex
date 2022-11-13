@@ -7,7 +7,6 @@ class Search extends Nullstack {
   }
 
   async submitPoke() {
-    //async submitPoke({ event }) {
     console.log("ESCOLHEU um pokemon");
     this.number = parseInt(event.target.value);
     console.log("Valor passado", this.number);
@@ -16,12 +15,9 @@ class Search extends Nullstack {
 
   render({ worker }) {
     return (
-      //<form onsubmit={this.submitPoke}>
       <form onsubmit={this.submitPoke1}>
         <input
-          //bind={this.choice}
           type="number"
-          //id="choice"
           placeholder="Search pokemon by a number"
           class="w-full rounded-lg border border-gray-300 p-2"
           value={this.number}
